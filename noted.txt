@@ -1,0 +1,5 @@
+MONGODB
+username: hengkenggg_db_user
+password: Yi9dXP3KKFlO5n9r
+
+link : mongodb+srv://<db_username>:Yi9dXP3KKFlO5n9r@cluster0.jmz7qdi.mongodb.net/?appName=Cluster0

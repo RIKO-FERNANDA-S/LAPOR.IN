@@ -1,0 +1,83 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.7853738,
+          -7.3317633
+        ]
+      },
+      "properties": {
+        "id": "316175513",
+        "version": "7",
+        "changeset": "75216455",
+        "timestamp": "2019-10-03T08:05:16Z",
+        "user": "dhanumuri",
+        "uid": "10050955"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.7853387,
+          -7.3323912
+        ]
+      },
+      "properties": {
+        "id": "4187560940",
+        "version": "1",
+        "changeset": "39334300",
+        "timestamp": "2016-05-15T16:22:46Z",
+        "user": "blueueto",
+        "uid": "3873099",
+        "tags": {
+          "addr:city": "Surabaya",
+          "addr:postcode": "60294",
+          "addr:street": "Jl. Kolonel I Gusti Ngurah Rai",
+          "amenity": "fast_food",
+          "name": "A&W Puri Mas"
+        },
+        "addr:city": "Surabaya",
+        "addr:postcode": "60294",
+        "addr:street": "Jl. Kolonel I Gusti Ngurah Rai",
+        "amenity": "fast_food",
+        "name": "A&W Puri Mas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.7855621,
+          -7.3337927
+        ]
+      },
+      "properties": {
+        "id": "4188539198",
+        "version": "1",
+        "changeset": "39342351",
+        "timestamp": "2016-05-16T02:51:18Z",
+        "user": "bleumeltha",
+        "uid": "3873217",
+        "tags": {
+          "addr:city": "Gunung Anya, Surabaya, East Javar",
+          "addr:postcode": "60294",
+          "addr:street": "Jl. I Gusti Ngurah Rai",
+          "building": "residential",
+          "name": "Puri Mas Apartement"
+        },
+        "addr:city": "Gunung Anya, Surabaya, East Javar",
+        "addr:postcode": "60294",
+        "addr:street": "Jl. I Gusti Ngurah Rai",
+        "building": "residential",
+        "name": "Puri Mas Apartement"
+      }
+    }
+  ]
+}

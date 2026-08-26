@@ -1,0 +1,263 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model User {
+  // Field bawaan NextAuth (menggunakan String CUID, bukan integer agar kompatibel)
+  id            String    @id @default(cuid())
+  name          String?   @db.VarChar(255) // Menggantikan full_name dari ERD
+  email         String?   @unique @db.VarChar(255)
+  emailVerified DateTime?
+  image         String?   @db.Text
+  accounts      Account[]
+  sessions      Session[]
+
+  // Field spesifik Lapor.in
+  password_hash String?   @db.VarChar(255) 
+  role_id       Int?      @default(2) // 1 = Admin, 2 = Warga
+  role          Role?     @relation(fields: [role_id], references: [id])
+  village       String?   @db.VarChar(100)
+  city          String?   @db.VarChar(100)
+  province      String?   @db.VarChar(100)
+  latitude      Float?    // Dioptimasi dari integer ke Float untuk presisi GPS
+  longitude     Float?    // Dioptimasi dari integer ke Float
+  is_verified   Boolean   @default(false)
+  is_active     Boolean   @default(true)
+  last_login    DateTime?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+
+  // Relasi ke tabel lain
+  reports               Report[]               @relation("UserReports")
+  verified_reports      Report[]               @relation("AdminVerifications")
+  report_verifications  ReportVerification[]
+  notifications         Notification[]
+
+  @@map("users")
+}
+
+// (Model Account, Session, dan VerificationToken NextAuth disembunyikan agar ringkas, 
+// gunakan skema standar NextAuth yang sudah kamu buat sebelumnya di sini)
+
+model Role {
+  id         Int      @id @default(autoincrement())
+  name       String   @unique @db.VarChar(50)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  users      User[]
+
+  @@map("roles")
+}
+
+// ==========================================
+// 2. MODEL MASTER REGIONAL & KATEGORI 
+// ==========================================
+
+model Region {
+  id               Int      @id @default(autoincrement())
+  province         String   @db.VarChar(100)
+  city             String   @db.VarChar(100)
+  district         String   @db.VarChar(100)
+  village          String   @db.VarChar(100)
+  bps_code         String?  @db.VarChar(20)  // Dioptimasi dari integer ke String agar angka 0 di depan tidak hilang
+  center_latitude  Float?   // Dioptimasi dari integer
+  center_longitude Float?   // Dioptimasi dari integer
+  area_sqkm        Float?   // Dioptimasi dari integer agar bisa menerima nilai desimal
+  is_active        Boolean  @default(true)
+  created_at       DateTime @default(now())
+
+  reports        Report[]
+  region_scores  RegionScore[]
+
+  @@map("regions")
+}
+
+model InfraCategory {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(100)
+  code        String   @unique @db.VarChar(50)
+  description String?  @db.Text
+  icon_urls   String?  @db.Text
+  weight      Int      @default(1)
+  is_active   Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  sub_categories SubCategory[]
+  region_scores  RegionScore[]
+
+  @@map("infra_categories")
+}
+
+model SubCategory {
+  id             Int      @id @default(autoincrement())
+  category_id    Int
+  category       InfraCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  name           String   @db.VarChar(100)
+  code           String   @unique @db.VarChar(50)
+  description    String?  @db.Text
+  example_object String?  @db.Text 
+  damage_signal  String?  @db.Text 
+  is_active      Boolean  @default(true)
+  created_at     DateTime @default(now())
+
+  reports Report[]
+
+  @@map("sub_categories")
+}
+
+// ==========================================
+// 3. MODEL TRANSAKSI PELAPORAN
+// ==========================================
+
+model Report {
+  id                   Int      @id @default(autoincrement())
+  user_id              String   // Menyesuaikan dengan tipe ID User NextAuth
+  user                 User     @relation("UserReports", fields: [user_id], references: [id])
+  
+  // NOTE: field `reporter_name` dihapus untuk menghilangkan redundansi. Nama pelapor selalu ditarik dari tabel User (user.name).
+  
+  sub_category_id      Int
+  sub_category         SubCategory @relation(fields: [sub_category_id], references: [id])
+  
+  region_id            Int
+  region               Region      @relation(fields: [region_id], references: [id])
+
+  report_date          DateTime  @db.Date
+  location_description String?   @db.VarChar(255)
+  latitude             Float     // ERD menggunakan decimal, Float adalah standar Prisma
+  longitude            Float    
+  description          String    @db.Text
+  
+  // Diubah ke tipe Enum dari varchar agar data konsisten dan tidak typo
+  severity_level       Severity  @default(RENDAH) 
+  
+  // Diubah menjadi Array of String karena PostgreSQL mendukung array secara native
+  photo_urls           String[]  
+  
+  status               ReportStatus @default(MENUNGGU)
+  verification_count   Int       @default(0)
+  
+  admin_verified_by    String?   // Menyesuaikan tipe ID User NextAuth
+  admin                User?     @relation("AdminVerifications", fields: [admin_verified_by], references: [id])
+  admin_verified_at    DateTime?
+  
+  reported_at          DateTime  @default(now())
+  is_deleted           Boolean   @default(false)
+
+  verifications        ReportVerification[]
+
+  @@map("reports")
+}
+
+model ReportVerification {
+  id                Int      @id @default(autoincrement())
+  report_id         Int
+  report            Report   @relation(fields: [report_id], references: [id], onDelete: Cascade)
+  user_id           String  
+  user              User     @relation(fields: [user_id], references: [id])
+  verification_type String   @db.VarChar(50) // cth: "UPVOTE", "DOWNVOTE", "ADMIN_CHECK"
+  comment           String?  @db.Text
+  created_at        DateTime @default(now())
+
+  @@map("reports_verifications")
+}
+
+// ==========================================
+// 4. MODEL ANALITIK & NOTIFIKASI
+// ==========================================
+
+model RegionScore {
+  id               Int      @id @default(autoincrement())
+  region_id        Int
+  region           Region   @relation(fields: [region_id], references: [id], onDelete: Cascade)
+  category_id      Int
+  category         InfraCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  
+  score            Float    // Dioptimasi dari integer agar skor rata-rata lebih presisi
+  score_label      String   @db.VarChar(50)
+  total_reports    Int      @default(0)
+  verified_reports Int      @default(0)
+  avg_severity     Float    @default(0) // Dioptimasi dari integer ke Float dan perbaikan typo "saverity"
+  period_month     Int
+  period_year      Int
+  calculated_at    DateTime @default(now()) // Dioptimasi dari tipe data integer
+
+  @@map("regions_scores")
+}
+
+model Notification {
+  id         Int      @id @default(autoincrement())
+  user_id    String  
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  title      String   @db.VarChar(255)
+  message    String   @db.Text
+  type       String   @db.VarChar(50)
+  is_read    Boolean  @default(false)
+  link_url   String?  @db.VarChar(255)
+  created_at DateTime @default(now())
+  read_at    DateTime?
+
+  @@map("notifications")
+}
+
+// ==========================================
+// ENUMS (Tambahan agar data terstruktur)
+// ==========================================
+
+enum Severity {
+  RENDAH
+  SEDANG
+  TINGGI
+  KRITIS
+}
+
+enum ReportStatus {
+  MENUNGGU
+  DIPROSES
+  DIVERIFIKASI
+  SELESAI
+  DITOLAK
+}
