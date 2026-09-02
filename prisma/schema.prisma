@@ -171,6 +171,9 @@ model Report {
   longitude            Float    
   description          String    @db.Text
   
+  rating               Int       @default(5) // Rating 1-5 bintang
+  aspect               String?   @db.VarChar(100) // Sub-part/aspek yang dinilai (misal: Trotoar, Kebersihan, Pungli)
+  
   // Diubah ke tipe Enum dari varchar agar data konsisten dan tidak typo
   severity_level       Severity  @default(RENDAH) 
   

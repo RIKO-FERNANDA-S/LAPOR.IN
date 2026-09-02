@@ -29,13 +29,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           },
         })
 
-        if (!user || !user.password) {
+        if (!user || !user.password_hash) {
           throw new Error("No user found with this email or password not set")
         }
 
         const isPasswordCorrect = await bcrypt.compare(
           credentials.password as string,
-          user.password
+          user.password_hash
         )
 
         if (!isPasswordCorrect) {
@@ -54,6 +54,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   session: {
     strategy: "jwt",
   },
+  trustHost: true,
   pages: {
     signIn: "/login",
   },

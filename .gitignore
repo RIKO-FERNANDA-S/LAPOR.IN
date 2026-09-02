@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 /lib/generated/prisma
+data/surabaya-jalan.geojson
+data/surabaya-jalan.geojson
+data/surabaya-jalan.geojson

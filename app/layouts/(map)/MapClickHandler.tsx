@@ -2,13 +2,17 @@
 
 import { useMapEvents } from "react-leaflet";
 
-export default function MapClickHandler() {
+interface MapClickHandlerProps {
+  onMapClick?: (lat: number, lng: number) => void;
+}
+
+export default function MapClickHandler({ onMapClick }: MapClickHandlerProps) {
   useMapEvents({
     click(event) {
       const { lat, lng } = event.latlng;
-
-      console.log("Latitude:", lat);
-      console.log("Longitude:", lng);
+      if (onMapClick) {
+        onMapClick(lat, lng);
+      }
     },
   });
 

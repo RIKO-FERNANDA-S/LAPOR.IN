@@ -1,17 +1,11 @@
 "use client";
-import dynamic from "next/dynamic";
 
-const MapComponents = dynamic(() => import("./(map)/Peta.client"), {
-  ssr: false,
-  loading: () => <div>Tunggu sebentar</div>,
-});
+import PetaWrapper from "./(map)/PetaWrapper";
 
-function petaWrapper() {
+export default function PetaLayout() {
   return (
-    <div className="h-screen w-screen">
-      <MapComponents />
+    <div className="h-screen w-screen overflow-hidden">
+      <PetaWrapper />
     </div>
   );
 }
-
-export default petaWrapper;

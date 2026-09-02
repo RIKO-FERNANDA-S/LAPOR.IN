@@ -1,0 +1,72 @@
+"use client"
+
+import React, { useState, KeyboardEvent } from "react"
+import { X } from "lucide-react"
+
+interface AddTagProps {
+  tags?: string[]
+  setTags?: (tags: string[]) => void
+}
+
+export default function AddTag({ tags = [], setTags }: AddTagProps) {
+  const [inputValue, setInputValue] = useState("")
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" || e.key === ",") {
+      e.preventDefault()
+      addTag()
+    } else if (e.key === "Backspace" && !inputValue && tags.length > 0) {
+      removeTag(tags.length - 1)
+    }
+  }
+
+  const addTag = () => {
+    const trimmed = inputValue.trim().replace(/^#/, "")
+    if (trimmed && !tags.includes(trimmed)) {
+      const newTags = [...tags, trimmed]
+      setTags?.(newTags)
+      setInputValue("")
+    }
+  }
+
+  const removeTag = (indexToRemove: number) => {
+    const newTags = tags.filter((_, index) => index !== indexToRemove)
+    setTags?.(newTags)
+  }
+
+  return (
+    <div className="w-full flex flex-col gap-2">
+      <div className="flex flex-wrap items-center gap-2 p-2.5 min-h-[44px] bg-background border border-input rounded-md focus-within:ring-2 focus-within:ring-primary/40 transition-all">
+        {tags.map((tag, index) => (
+          <span
+            key={index}
+            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-primary/10 text-primary border border-primary/20 rounded-full animate-in fade-in zoom-in-95 duration-150"
+          >
+            #{tag}
+            <button
+              type="button"
+              onClick={() => removeTag(index)}
+              className="hover:bg-primary/20 rounded-full p-0.5 transition-colors"
+              aria-label={`Hapus tag ${tag}`}
+            >
+              <X className="w-3 h-3" />
+            </button>
+          </span>
+        ))}
+
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+          onBlur={addTag}
+          placeholder={tags.length === 0 ? "Ketik topik & tekan Enter..." : "Tambah tag..."}
+          className="flex-1 min-w-[120px] bg-transparent text-xs outline-none placeholder:text-muted-foreground"
+        />
+      </div>
+      <p className="text-[11px] text-muted-foreground">
+        Tekan Enter atau tanda koma (,) untuk menambahkan tag.
+      </p>
+    </div>
+  )
+}
