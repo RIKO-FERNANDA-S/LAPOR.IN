@@ -1,0 +1,1265 @@
+Buat sebuah landing page modern untuk platform civic-tech bernama "Bina".
+
+Bina adalah platform yang membantu masyarakat melihat, menilai, dan memahami kondisi infrastruktur serta fasilitas publik berdasarkan kondisi nyata di lapangan.
+
+Gunakan gambar referensi yang diberikan sebagai REFERENSI UTAMA untuk gaya visual, komposisi, spacing, typography hierarchy, card treatment, dan storytelling layout.
+
+JANGAN menyalin branding, teks, gambar, logo, atau identitas visual dari website referensi.
+Gunakan hanya karakteristik desain dan struktur visualnya sebagai inspirasi.
+
+==================================================
+1. BRAND & PRODUCT CONTEXT
+==================================================
+
+Nama platform:
+
+Bina
+
+Tagline utama:
+
+"Seberapa Layak Kotamu Hari Ini?"
+
+Alternative supporting tagline:
+
+"Lihat kondisi nyata. Nilai infrastrukturnya. Bina kotamu."
+
+Bina bukan sekadar website review tempat.
+
+Bina merupakan platform yang mengubah pengalaman dan pengamatan masyarakat terhadap infrastruktur menjadi data yang dapat digunakan untuk memahami kualitas fasilitas publik dan kondisi suatu wilayah.
+
+Masyarakat dapat menilai berbagai jenis infrastruktur dan fasilitas publik seperti:
+
+- Jalan dan mobilitas
+- JPO
+- Halte
+- Taman dan ruang publik
+- Layanan birokrasi
+- Sekolah
+- Air bersih dan sanitasi
+- Listrik
+- Telekomunikasi
+- Fasilitas kesehatan
+
+Setiap laporan dapat berisi:
+
+- Lokasi
+- Jenis fasilitas
+- Bagian fasilitas yang dinilai
+- Rating
+- Deskripsi kondisi
+- Foto/video sebagai bukti
+
+Bina kemudian mengolah penilaian tersebut menjadi gambaran kualitas suatu tempat dan wilayah.
+
+==================================================
+2. DESIGN DIRECTION
+==================================================
+
+Gunakan visual style yang sangat clean, editorial, modern, minimal, dan premium.
+
+Karakter visual:
+
+- Minimalist
+- Monochrome dominant
+- White / off-white background
+- Black typography
+- Soft gray secondary surfaces
+- Large typography
+- Generous whitespace
+- Rounded cards
+- Thin borders
+- Soft shadows
+- Editorial layout
+- Asymmetric composition
+- Floating cards
+- Subtle rotation pada beberapa card
+- Subtle decorative line-art
+- Modern civic-tech aesthetic
+- Professional tetapi tetap approachable
+- Tidak terlihat seperti website pemerintahan konvensional
+- Tidak terlihat seperti marketplace
+- Tidak terlihat seperti dashboard admin
+
+Referensi visual memiliki karakter seperti creative agency landing page.
+Pertahankan karakter tersebut tetapi ubah storytelling menjadi civic infrastructure platform.
+
+==================================================
+3. OVERALL PAGE STRUCTURE
+==================================================
+
+Landing page terdiri dari:
+
+1. Navbar
+2. Hero section
+3. Infrastructure statistics / trust strip
+4. Introduction / About Bina
+5. Problem statement
+6. How Bina works
+7. Infrastructure categories
+8. Bina Score
+9. Explore infrastructure / location
+10. Citizen reviews
+11. Report new place
+12. Final CTA
+13. Footer
+
+Setiap section harus memiliki transisi visual yang natural.
+
+Jangan membuat seluruh section terasa seperti kumpulan card yang sama.
+Gunakan variasi antara:
+
+- large whitespace
+- editorial text
+- image composition
+- cards
+- dark section
+- map visualization
+- statistics
+- asymmetric layouts
+
+==================================================
+4. NAVBAR
+==================================================
+
+Navbar harus minimal dan clean.
+
+Desktop:
+
+Logo di kiri:
+
+"bina."
+
+Navigation di tengah:
+
+- Beranda
+- Jelajahi
+- Kategori
+- Cara Kerja
+- Tentang Bina
+
+CTA di kanan:
+
+"Nilai Sekarang"
+
+Tambahkan tombol "Masuk" jika diperlukan.
+
+Navbar memiliki:
+
+- transparent / white background
+- sticky behavior saat scrolling
+- subtle backdrop blur ketika page sudah discroll
+- thin bottom border atau sangat subtle shadow
+- height sekitar 72–84px
+
+Jangan membuat navbar terlalu tinggi.
+
+Mobile:
+
+Navbar hanya menampilkan:
+
+bina.
+
+dan hamburger menu.
+
+CTA "Nilai Sekarang" dapat berada di dalam mobile menu.
+
+==================================================
+5. HERO SECTION
+==================================================
+
+Hero harus menjadi bagian paling kuat dari landing page.
+
+Gunakan komposisi asymmetric seperti referensi.
+
+Desktop layout:
+
+LEFT:
+Text content
+
+RIGHT:
+Visual infrastructure / map composition
+
+Eyebrow kecil:
+
+"INFRASTRUKTUR KOTA, DILIHAT DARI LAPANGAN"
+
+Headline besar:
+
+"Seberapa Layak
+Kotamu Hari Ini?"
+
+Gunakan typography besar, bold, dan compact line-height.
+
+Headline harus menjadi focal point.
+
+Supporting text:
+
+"Bina membantu masyarakat melihat, menilai, dan memahami kondisi infrastruktur serta fasilitas publik berdasarkan apa yang benar-benar terjadi di lapangan."
+
+CTA:
+
+"Mulai Menilai ↗"
+
+Secondary CTA:
+
+"Jelajahi Kota"
+
+Tambahkan small supporting statement:
+
+"Nilai berdasarkan kondisi nyata. Sertakan bukti. Bangun gambaran kotamu bersama."
+
+RIGHT SIDE:
+
+Jangan menggunakan foto manusia seperti website referensi.
+
+Gunakan kombinasi:
+
+- city map
+- infrastructure photo
+- floating rating card
+- location marker
+- Bina Score
+- small data labels
+
+Contoh visual:
+
+Map Surabaya sebagai background utama.
+
+Floating card:
+
+"Taman Bungkul"
+
+"88 / 100"
+
+"ADIBINA"
+
+"★★★★★"
+
+Tambahkan beberapa floating location points.
+
+Visual harus terasa seperti perpaduan:
+
+editorial website + city map + data visualization.
+
+Jangan membuatnya terlihat seperti dashboard penuh.
+
+==================================================
+6. HERO DECORATIVE ELEMENTS
+==================================================
+
+Gunakan decorative elements seperti referensi:
+
+- abstract starburst
+- curved thin lines
+- dotted route
+- small plus signs
+- tiny labels
+- subtle grid
+- thin geometric lines
+
+Gunakan secara sangat subtle.
+
+Dekorasi tidak boleh mengganggu headline.
+
+Tambahkan sedikit floating animation:
+
+- map points gently pulse
+- cards slightly float
+- decorative line moves subtly
+
+Semua animasi harus slow dan elegant.
+
+==================================================
+7. STATISTICS STRIP
+==================================================
+
+Setelah hero, buat horizontal statistics section.
+
+Jangan menggunakan client logos seperti referensi.
+
+Gunakan data yang relevan dengan Bina.
+
+Headline kecil:
+
+"DATA DARI KONDISI NYATA"
+
+Statistics:
+
+"12K+"
+"Laporan Warga"
+
+"300+"
+"Tempat Dinilai"
+
+"30+"
+"Wilayah"
+
+"8"
+"Kategori Infrastruktur"
+
+Jika data aktual belum tersedia, gunakan placeholder yang jelas dan mudah diganti.
+
+Visual:
+
+Minimal.
+Horizontal.
+Banyak whitespace.
+
+Pada mobile:
+
+ubah menjadi 2-column grid atau horizontal scroll.
+
+==================================================
+8. INTRODUCTION SECTION
+==================================================
+
+Gunakan struktur editorial seperti section "Meet Creativewise" pada referensi.
+
+Small eyebrow:
+
+"TENTANG BINA"
+
+Headline:
+
+"Suara Warga
+untuk Infrastruktur."
+
+Supporting copy:
+
+"Infrastruktur bukan hanya tentang apa yang dibangun. Kondisi, aksesibilitas, kebersihan, keamanan, dan kualitas pelayanan juga menentukan apakah sebuah fasilitas benar-benar dapat digunakan dengan baik."
+
+Lanjutkan:
+
+"Bina menghadirkan ruang bagi masyarakat untuk mendokumentasikan kondisi tersebut dan mengubah pengalaman di lapangan menjadi informasi yang dapat dilihat bersama."
+
+Visual di sisi kanan:
+
+Gunakan collage foto:
+
+- jalan
+- trotoar
+- taman
+- halte
+- sekolah
+- fasilitas publik
+
+Gunakan grayscale atau muted treatment agar tetap sesuai dengan visual reference.
+
+==================================================
+9. PROBLEM STATEMENT
+==================================================
+
+Buat section dengan background off-white / light gray.
+
+Headline:
+
+"Infrastruktur Ada.
+Tapi Apakah Layak?"
+
+Supporting text:
+
+"Jalan bisa saja tersedia, tetapi apakah masih nyaman dilalui?
+Taman bisa saja dibangun, tetapi apakah fasilitasnya terawat?
+Halte bisa saja berdiri, tetapi apakah mudah diakses?"
+
+Lanjutkan:
+
+"Bina mencoba melihat kondisi tersebut dari sudut pandang masyarakat yang menggunakannya setiap hari."
+
+Buat beberapa visual statement cards:
+
+"Jalan rusak"
+
+"Fasilitas tidak terawat"
+
+"Aksesibilitas terbatas"
+
+"Data kondisi lapangan belum terlihat"
+
+Card jangan terlalu besar.
+Gunakan asymmetric editorial arrangement.
+
+==================================================
+10. HOW BINA WORKS
+==================================================
+
+Gunakan layout yang terinspirasi dari process cards pada referensi.
+
+Background putih.
+
+Eyebrow:
+
+"CARA KERJA"
+
+Headline:
+
+"Dari Kondisi Lapangan
+Menjadi Data."
+
+Supporting copy:
+
+"Setiap warga dapat ikut membangun gambaran kondisi infrastruktur di sekitarnya."
+
+Buat empat floating cards yang tersusun secara diagonal / vertical flow.
+
+CARD 01
+
+"Temukan"
+
+"Temukan lokasi dan fasilitas publik yang ingin kamu nilai."
+
+CARD 02
+
+"Nilai"
+
+"Berikan penilaian berdasarkan kondisi yang kamu temukan."
+
+CARD 03
+
+"Buktikan"
+
+"Tambahkan deskripsi serta foto atau video sebagai bukti kondisi."
+
+CARD 04
+
+"Kirim"
+
+"Kirim laporan dan jadikan pengalamanmu bagian dari data Bina."
+
+Tambahkan dotted connection line antar card.
+
+Di akhir section:
+
+"Ready to be heard?"
+
+atau versi Indonesia:
+
+"Siap ikut membangun data kotamu?"
+
+CTA:
+
+"Mulai Menilai ↗"
+
+==================================================
+11. INFRASTRUCTURE CATEGORIES
+==================================================
+
+Buat section dark / black seperti bagian dark section pada referensi.
+
+Headline:
+
+"Kami Tidak Hanya
+Menilai Tempat.
+Kami Menilai Kondisinya."
+
+Supporting text:
+
+"Bina mencakup berbagai aspek yang membentuk kualitas hidup masyarakat, dari jalan yang digunakan setiap hari hingga akses air, listrik, telekomunikasi, pendidikan, dan kesehatan."
+
+Buat category cards dalam grid.
+
+Kategori:
+
+01
+Jalan & Mobilitas
+
+"Jalan, trotoar, JPO, halte, rambu, marka, dan akses mobilitas."
+
+02
+Ruang Publik
+
+"Taman, pedestrian, toilet, tempat sampah, kebersihan, dan fasilitas umum."
+
+03
+Layanan Birokrasi
+
+"Fasilitas MPP, akses layanan, kondisi bangunan, dan kualitas pelayanan."
+
+04
+Pendidikan
+
+"Sekolah, fasilitas belajar, kondisi bangunan, peralatan, dan kualitas pendidikan."
+
+05
+Air & Sanitasi
+
+"Ketersediaan air bersih dan akses terhadap layanan air."
+
+06
+Listrik
+
+"Cakupan listrik dan kualitas layanan berdasarkan intensitas gangguan."
+
+07
+Telekomunikasi
+
+"Cakupan jaringan, ketersediaan provider, dan kualitas konektivitas."
+
+08
+Kesehatan
+
+"Puskesmas, rumah sakit, layanan kesehatan, bangunan, dan peralatan medis."
+
+Gunakan icon minimal.
+Jangan menggunakan icon besar berwarna-warni.
+
+==================================================
+12. BINA SCORE
+==================================================
+
+Buat section yang menjadi salah satu visual highlight utama.
+
+Headline:
+
+"Satu Skor untuk
+Melihat Kondisi Wilayah."
+
+Supporting text:
+
+"Penilaian dari berbagai tempat dikumpulkan untuk memberikan gambaran kualitas infrastruktur suatu wilayah."
+
+Tampilkan visual score besar:
+
+"82"
+
+"SWABINA"
+
+"★★★★☆"
+
+Kemudian tampilkan beberapa kategori:
+
+Jalan
+████████░░
+
+Ruang Publik
+█████████░
+
+Pendidikan
+███████░░░
+
+Air & Sanitasi
+████████░░
+
+Listrik
+█████████░
+
+Telekomunikasi
+████████░░
+
+Kesehatan
+███████░░░
+
+Jangan membuatnya seperti dashboard admin.
+Visual harus tetap editorial dan premium.
+
+Tambahkan penjelasan singkat mengenai klasifikasi:
+
+ADIBINA
+"Unggul"
+
+SWABINA
+"Mandiri"
+
+PURWABINA
+"Dasar"
+
+RENTANBINA
+"Rentan"
+
+NIRBINA
+"Kritis"
+
+Gunakan angka sebagai visual utama.
+
+==================================================
+13. EXPLORE SECTION
+==================================================
+
+Headline:
+
+"Jelajahi Kondisi Kotamu."
+
+Supporting copy:
+
+"Lihat bagaimana kualitas infrastruktur berbeda dari satu tempat ke tempat lainnya."
+
+Buat large map visualization.
+
+Map fokus pada Surabaya.
+
+Gunakan:
+
+- location markers
+- infrastructure markers
+- score labels
+- small floating cards
+
+Contoh:
+
+"Taman Bungkul"
+"88 — ADIBINA"
+
+"Jalan X"
+"74 — SWABINA"
+
+"Halte X"
+"61 — PURWABINA"
+
+Jangan menggunakan data palsu pada production.
+Gunakan placeholder hanya untuk desain.
+
+Tambahkan filter:
+
+"Semua"
+
+"Jalan"
+
+"Ruang Publik"
+
+"Pendidikan"
+
+"Kesehatan"
+
+dan kategori lainnya.
+
+CTA:
+
+"Jelajahi Peta ↗"
+
+==================================================
+14. CITIZEN REVIEW SECTION
+==================================================
+
+Gunakan layout testimonial seperti referensi.
+
+Eyebrow:
+
+"SUARA WARGA"
+
+Headline:
+
+"Apa Kata Warga
+Tentang Kotanya?"
+
+Tampilkan beberapa review.
+
+Contoh:
+
+"Trotoarnya cukup nyaman, tetapi beberapa bagian masih rusak dan sulit digunakan oleh pengguna kursi roda."
+
+Rating:
+
+"★★★★☆"
+
+Metadata:
+
+"2 hari lalu"
+"Surabaya"
+
+Tambahkan small photo evidence thumbnail.
+
+Jangan menampilkan identitas sensitif.
+Gunakan nama publik / anonim sesuai aturan platform.
+
+==================================================
+15. NEW PLACE / REPORT SECTION
+==================================================
+
+Ini adalah salah satu fitur unik Bina.
+
+Gunakan section dengan visual yang menarik.
+
+Headline:
+
+"Tidak Menemukan
+Fasilitasnya?"
+
+Supporting text:
+
+"Jika sebuah tempat atau fasilitas belum tersedia di Bina, masyarakat dapat melaporkan keberadaannya dan membantu membuatnya tersedia untuk dinilai."
+
+Visual flow:
+
+"Tidak ditemukan"
+
+↓
+
+"Laporkan Tempat"
+
+↓
+
+"30 laporan warga"
+
+↓
+
+"Validasi"
+
+↓
+
+"Tempat tersedia"
+
+Tambahkan CTA:
+
+"Laporkan Tempat ↗"
+
+Gunakan progress indicator sebagai visual:
+
+"12 / 30 laporan"
+
+dan progress bar.
+
+Jelaskan secara singkat:
+
+"Tempat baru akan tersedia setelah memenuhi jumlah laporan validasi yang ditentukan."
+
+==================================================
+16. FINAL CTA
+==================================================
+
+Gunakan dark / black section seperti CTA pada referensi.
+
+Headline besar:
+
+"Kotamu Bukan
+Sekadar Peta."
+
+Line kedua:
+
+"Ada Kondisi di Baliknya."
+
+Supporting text:
+
+"Bantu dokumentasikan kondisi infrastruktur di sekitarmu dan jadikan pengalaman warga sebagai data yang dapat dilihat bersama."
+
+CTA utama:
+
+"Mulai Menilai ↗"
+
+Secondary:
+
+"Jelajahi Peta"
+
+Tambahkan decorative line-art seperti referensi.
+
+==================================================
+17. FOOTER
+==================================================
+
+Logo:
+
+"bina."
+
+Description:
+
+"Platform informasi dan penilaian infrastruktur serta fasilitas publik berbasis masyarakat."
+
+Footer navigation:
+
+Jelajahi
+- Peta
+- Infrastruktur
+- Fasilitas Publik
+- Wilayah
+
+Tentang
+- Tentang Bina
+- Cara Kerja
+- Metodologi
+
+Komunitas
+- Nilai Sekarang
+- Laporkan Tempat
+- Panduan
+
+Bottom:
+
+"© 2026 Bina. Semua hak dilindungi."
+
+==================================================
+18. RESPONSIVE DESIGN
+==================================================
+
+Landing page harus benar-benar responsive.
+
+Jangan hanya mengecilkan desktop layout.
+
+Design harus dirancang ulang untuk:
+
+- Desktop
+- Tablet
+- Mobile
+
+------------------------------------------
+DESKTOP
+------------------------------------------
+
+Target:
+
+1440px+
+1200px
+1024px
+
+Gunakan:
+
+- max-width sekitar 1200–1280px
+- generous horizontal padding
+- large typography
+- asymmetric layouts
+- 2-column hero
+- large map
+- floating cards
+- 4-column category grid
+- horizontal statistics
+- diagonal process cards
+
+Hero:
+
+Text sekitar 50–55% width.
+
+Visual sekitar 45–50%.
+
+Headline:
+
+clamp sekitar 64px–88px.
+
+Section spacing:
+
+sekitar 120–180px antar section utama.
+
+------------------------------------------
+TABLET
+------------------------------------------
+
+Target:
+
+768px–1023px.
+
+Pertahankan visual hierarchy.
+
+Hero dapat menjadi:
+
+Text
++
+Visual
+
+tetapi kurangi ukuran typography.
+
+Process cards:
+
+2 columns.
+
+Category:
+
+2 columns.
+
+Statistics:
+
+2x2.
+
+Map:
+
+full width.
+
+Kurangi decorative elements yang tidak penting.
+
+------------------------------------------
+MOBILE
+------------------------------------------
+
+Target:
+
+320px–767px.
+
+Prioritaskan readability dan conversion.
+
+Navbar:
+
+Logo + hamburger.
+
+Hero:
+
+single column.
+
+Urutan:
+
+Eyebrow
+
+Headline
+
+Description
+
+Primary CTA
+
+Secondary CTA
+
+Visual
+
+Statistics
+
+Hero headline:
+
+sekitar 42–52px.
+
+Jangan menggunakan headline terlalu kecil.
+
+Hero visual harus berada di bawah CTA.
+
+Floating cards tidak boleh keluar viewport.
+
+Jangan membuat horizontal overflow.
+
+------------------------------------------
+MOBILE PROCESS
+------------------------------------------
+
+Process cards tidak lagi diagonal.
+
+Gunakan vertical timeline:
+
+01
+Temukan
+↓
+
+02
+Nilai
+↓
+
+03
+Buktikan
+↓
+
+04
+Kirim
+
+Dotted line berubah menjadi vertical connector.
+
+------------------------------------------
+MOBILE CATEGORY
+------------------------------------------
+
+Gunakan 1 column.
+
+Setiap category card:
+
+width 100%.
+
+Padding besar.
+
+Tidak terlalu tinggi.
+
+Contoh:
+
+┌───────────────────────┐
+│ 01                    │
+│                       │
+│ Jalan & Mobilitas     │
+│                       │
+│ Jalan, JPO, halte...  │
+│                       │
+│ →                     │
+└───────────────────────┘
+
+------------------------------------------
+MOBILE SCORE
+------------------------------------------
+
+Bina Score harus tetap menjadi visual utama.
+
+Score:
+
+"82"
+
+harus sangat besar.
+
+Kemudian:
+
+"SWABINA"
+
+Bar kategori dibuat vertical.
+
+Jangan membuat score chart terlalu kompleks.
+
+------------------------------------------
+MOBILE MAP
+------------------------------------------
+
+Map menjadi full width.
+
+Gunakan aspect ratio sekitar 4:3.
+
+Floating location card dapat muncul sebagai bottom sheet kecil.
+
+Filter kategori gunakan horizontal scroll.
+
+Pastikan tidak menyebabkan horizontal page overflow.
+
+------------------------------------------
+MOBILE TESTIMONIAL
+------------------------------------------
+
+Gunakan horizontal swipe carousel.
+
+Satu testimonial ditampilkan pada satu waktu.
+
+------------------------------------------
+MOBILE CTA
+------------------------------------------
+
+CTA harus full-width.
+
+Button:
+
+width: 100%.
+
+Minimum touch target:
+
+44px.
+
+==================================================
+19. RESPONSIVE TYPOGRAPHY
+==================================================
+
+Gunakan responsive typography.
+
+Contoh:
+
+Hero:
+
+desktop:
+64–88px
+
+tablet:
+52–64px
+
+mobile:
+42–52px
+
+Section headline:
+
+desktop:
+48–64px
+
+tablet:
+40–52px
+
+mobile:
+32–42px
+
+Body:
+
+16–18px desktop
+
+15–17px mobile
+
+Gunakan line-height yang tight pada headline.
+
+Jangan menggunakan terlalu banyak font weight.
+
+==================================================
+20. ANIMATION & INTERACTION
+==================================================
+
+Gunakan animasi subtle.
+
+Jangan membuat website seperti flashy startup landing page.
+
+Gunakan:
+
+- fade-up
+- slight slide
+- floating cards
+- map marker pulse
+- hover lift
+- subtle image zoom
+- button arrow movement
+- smooth section reveal
+
+Durasi sekitar:
+
+400–800ms.
+
+Easing:
+
+smooth / ease-out.
+
+Gunakan Intersection Observer atau Framer Motion jika tersedia.
+
+Respect:
+
+prefers-reduced-motion.
+
+Jika user mengaktifkan reduced motion,
+matikan animation yang tidak penting.
+
+==================================================
+21. IMAGE TREATMENT
+==================================================
+
+Gunakan foto infrastruktur nyata.
+
+Jenis visual:
+
+- jalan kota
+- trotoar
+- taman
+- halte
+- JPO
+- sekolah
+- puskesmas
+- fasilitas publik
+
+Gunakan treatment:
+
+- grayscale
+- high contrast
+- muted
+- black and white
+- subtle grain jika sesuai
+
+Hindari stock photo yang terlalu corporate.
+
+Hindari foto orang tersenyum di depan kamera sebagai visual utama.
+
+Fokus pada:
+
+"place"
+
+"condition"
+
+"infrastructure"
+
+"city"
+
+==================================================
+22. VISUAL LANGUAGE
+==================================================
+
+Website harus terasa seperti perpaduan:
+
+Modern editorial design
++
+Civic technology
++
+Urban data
++
+Community platform
+
+Bukan:
+
+Government portal
+Marketplace
+Social media
+Admin dashboard
+
+Visual harus terasa credible, intelligent, modern, dan human.
+
+==================================================
+23. IMPORTANT UX PRINCIPLES
+==================================================
+
+Landing page harus menjawab 5 pertanyaan dalam beberapa detik:
+
+1. Apa itu Bina?
+2. Mengapa Bina penting?
+3. Apa yang bisa saya lakukan?
+4. Apa yang dinilai?
+5. Bagaimana saya mulai?
+
+Primary conversion:
+
+"Mulai Menilai"
+
+Secondary conversion:
+
+"Jelajahi Peta"
+
+Jangan membuat terlalu banyak CTA berbeda.
+
+==================================================
+24. FINAL DESIGN CHARACTER
+==================================================
+
+Hasil akhir harus terasa:
+
+minimal
+clean
+bold
+editorial
+modern
+credible
+data-driven
+community-driven
+urban
+premium
+
+Gunakan referensi image sebagai acuan komposisi:
+
+- large hero typography
+- asymmetric image placement
+- horizontal statistic strip
+- editorial two-column sections
+- floating tilted cards
+- large whitespace
+- dark section
+- process cards
+- visual map
+- testimonial
+- large final CTA
+
+Namun seluruh isi, copywriting, imagery, dan branding harus dibuat khusus untuk Bina.
+
+Prioritaskan desktop-first visual quality tetapi implementasikan responsive behavior dengan benar.
+
+Pastikan:
+
+- tidak ada horizontal overflow
+- semua image responsive
+- typography fluid
+- cards tidak terpotong
+- map responsive
+- navbar mobile-friendly
+- CTA mudah ditekan
+- spacing konsisten
+- accessibility diperhatikan
+- semantic HTML digunakan
+- contrast cukup
+- keyboard navigation tersedia
+- reduced-motion support tersedia
+
+Hasil akhir harus terlihat seperti landing page produk civic-tech modern yang siap menjadi public-facing platform, bukan sekadar prototype.
+
+
+IMPORTANT:
+
+Study the provided reference image carefully before implementing the UI.
+
+The reference image is a visual direction reference, not a content reference.
+
+Recreate the DESIGN LANGUAGE, not the website itself.
+
+Pay particular attention to:
+
+- overall vertical rhythm
+- asymmetric composition
+- typography scale
+- whitespace
+- card proportions
+- image cropping
+- floating card placement
+- section transitions
+- dark/light section alternation
+- editorial layout
+- subtle decorative elements
+- CTA placement
+- visual hierarchy
+
+Do NOT create a generic SaaS landing page.
+
+Do NOT use a typical centered hero with a giant gradient background.
+
+Do NOT turn the landing page into a dashboard.
+
+Do NOT copy Creativewise branding or content.
+
+The final design should feel like:
+"an editorial urban infrastructure platform designed with the sophistication of a modern creative studio."

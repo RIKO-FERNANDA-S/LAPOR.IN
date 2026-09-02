@@ -16,9 +16,9 @@ const user = session?.user;
 
       <div className="flex justify-center items-center gap-8">
         <Link href="/">Beranda</Link>
-        <Link href="/ajuan">Ajuan Laporan</Link>
-        <Link href="/peta">Peta</Link>
-        <Link href="/komunitas">Komunitas</Link>
+        <Link href="#tentang">Tentang</Link>
+        <Link href="#ajuan">Ajuan Laporan</Link>
+        <Link href="#peta">Peta</Link>
       </div>
 
       {user ? (
