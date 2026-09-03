@@ -1,7 +1,7 @@
 "use client"
 
 import React, { ChangeEvent, useRef } from "react"
-import { UploadCloud, Image as ImageIcon, X } from "lucide-react"
+import { UploadCloud, Image as ImageIcon, X, AlertCircle } from "lucide-react"
 
 interface PhotoUploaderProps {
   photos: string[]
@@ -53,10 +53,10 @@ export default function PhotoUploader({
       {/* Upload Drop Area */}
       <div
         onClick={() => fileInputRef.current?.click()}
-        className={`w-full min-h-[180px] p-6 border-2 border-dashed rounded-lg flex flex-col items-center justify-center gap-2 cursor-pointer transition-all ${
+        className={`w-full min-h-[160px] p-6 border-2 border-dashed rounded-2xl flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-200 ${
           photos.length >= maxPhotos
-            ? "border-muted bg-muted/20 cursor-not-allowed"
-            : "border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/10"
+            ? "border-neutral-200 bg-neutral-50/50 cursor-not-allowed"
+            : "border-neutral-300 hover:border-black bg-neutral-50/50 hover:bg-neutral-100/50"
         }`}
       >
         <input
@@ -69,17 +69,17 @@ export default function PhotoUploader({
           className="hidden"
         />
 
-        <div className="p-3 bg-primary/10 rounded-full text-primary">
-          <UploadCloud className="w-7 h-7" />
+        <div className="p-3 bg-white border border-neutral-200 rounded-full text-black shadow-2xs">
+          <UploadCloud className="w-6 h-6" />
         </div>
 
         <div className="text-center">
-          <p className="text-sm font-semibold text-foreground">
+          <p className="text-xs font-bold text-black tracking-tight">
             {photos.length >= maxPhotos
               ? "Batas Maksimum Foto Tercapai"
               : "Klik atau Seret Foto Ke Sini"}
           </p>
-          <p className="text-xs text-muted-foreground mt-0.5">
+          <p className="text-[11px] text-neutral-400 mt-0.5">
             PNG, JPG, WEBP hingga 5MB ({photos.length}/{maxPhotos} foto)
           </p>
         </div>
@@ -91,12 +91,12 @@ export default function PhotoUploader({
           {photos.map((photo, index) => (
             <div
               key={index}
-              className="relative aspect-square rounded-md overflow-hidden border border-border group shadow-xs bg-muted"
+              className="relative aspect-square rounded-xl overflow-hidden border border-neutral-200 group shadow-2xs bg-neutral-100"
             >
               <img
                 src={photo}
                 alt={`Preview Bukti ${index + 1}`}
-                className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <button
                 type="button"
@@ -104,12 +104,12 @@ export default function PhotoUploader({
                   e.stopPropagation()
                   removePhoto(index)
                 }}
-                className="absolute top-1 right-1 p-1 bg-destructive/90 text-destructive-foreground rounded-full opacity-90 hover:opacity-100 hover:scale-110 transition-all shadow-md"
+                className="absolute top-1.5 right-1.5 p-1 bg-black/80 hover:bg-black text-white rounded-full transition-all shadow-md"
                 title="Hapus foto"
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-3 h-3" />
               </button>
-              <div className="absolute bottom-1 left-1 bg-background/80 backdrop-blur-xs px-1.5 py-0.5 rounded text-[10px] font-medium text-foreground">
+              <div className="absolute bottom-1.5 left-1.5 bg-black/70 backdrop-blur-md px-1.5 py-0.5 rounded-md text-[9px] font-bold text-white uppercase tracking-wider">
                 Foto #{index + 1}
               </div>
             </div>
@@ -119,3 +119,4 @@ export default function PhotoUploader({
     </div>
   )
 }
+

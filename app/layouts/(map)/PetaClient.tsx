@@ -166,7 +166,7 @@ export default function PetaClient() {
     : null;
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-slate-950 font-sans">
+    <div className="relative w-full h-full overflow-hidden bg-white font-sans">
       {/* Leaflet Interactive Map Container */}
       <MapContainer
         center={[-7.3361, 112.7872]}

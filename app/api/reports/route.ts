@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
 import { auth } from "@/auth"
-import { Severity } from "@prisma/client"
+import { Severity, ReportStatus } from "@prisma/client"
 
 export async function POST(req: Request) {
   try {
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
       )
     }
 
-    // Mandatory photo check according to section 17 of prompt
+    // Mandatory photo check
     if (!photo_urls || !Array.isArray(photo_urls) || photo_urls.length === 0) {
       return NextResponse.json(
         { message: "Bukti foto/video wajib diunggah untuk mengirim laporan atau penilaian" },
@@ -154,19 +154,46 @@ export async function POST(req: Request) {
   }
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
+    const { searchParams } = new URL(req.url)
+    const userId = searchParams.get("userId")
+    const status = searchParams.get("status")
+    const verified = searchParams.get("verified")
+
+    const where: any = {
+      is_deleted: false,
+    }
+
+    if (userId) {
+      where.user_id = userId
+    }
+
+    if (status) {
+      const statuses = status.split(",").map((s) => s.trim().toUpperCase())
+      where.status = { in: statuses }
+    } else if (verified === "true") {
+      where.status = { in: [ReportStatus.DIVERIFIKASI, ReportStatus.SELESAI] }
+    } else if (verified === "false") {
+      where.status = { in: [ReportStatus.MENUNGGU, ReportStatus.DIPROSES] }
+    }
+
     const reports = await prisma.report.findMany({
+      where,
       orderBy: { reported_at: "desc" },
-      take: 50,
+      take: 100,
       include: {
         user: { select: { name: true, email: true } },
         sub_category: true,
         region: true,
+        verifications: true,
       },
     })
     return NextResponse.json({ reports })
   } catch (error: any) {
-    return NextResponse.json({ message: "Gagal mengambil data laporan", error: error.message }, { status: 500 })
+    return NextResponse.json(
+      { message: "Gagal mengambil data laporan", error: error.message },
+      { status: 500 }
+    )
   }
 }

@@ -58,7 +58,7 @@ export default function LocationPicker({
   }
 
   return (
-    <div className="relative w-full h-72 rounded-lg overflow-hidden border border-border shadow-inner group">
+    <div className="relative w-full h-72 rounded-2xl overflow-hidden border border-neutral-200 shadow-2xs group bg-neutral-100">
       <MapContainer
         center={[latitude, longitude]}
         zoom={15}
@@ -66,16 +66,16 @@ export default function LocationPicker({
         className="h-full w-full z-0"
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ClickHandler onLocationChange={onLocationChange} />
         <Marker position={[latitude, longitude]} icon={customMarkerIcon}>
           <Popup>
-            <div className="text-xs">
-              <strong className="block font-semibold text-primary">Titik Lokasi Terpilih</strong>
-              <span>Lat: {latitude.toFixed(6)}</span><br />
-              <span>Lng: {longitude.toFixed(6)}</span>
+            <div className="text-xs font-sans">
+              <strong className="block font-bold text-black mb-1">Titik Penilaian Terpilih</strong>
+              <span className="font-mono text-[11px] text-neutral-600">Lat: {latitude.toFixed(6)}</span><br />
+              <span className="font-mono text-[11px] text-neutral-600">Lng: {longitude.toFixed(6)}</span>
             </div>
           </Popup>
         </Marker>
@@ -83,11 +83,11 @@ export default function LocationPicker({
 
       {/* Control Overlay Buttons & Info */}
       <div className="absolute bottom-3 left-3 right-3 z-10 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
-        <div className="pointer-events-auto bg-background/90 backdrop-blur-md px-3 py-1.5 rounded-md text-xs font-mono border border-border shadow-sm flex items-center gap-2 text-foreground">
-          <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+        <div className="pointer-events-auto bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl text-xs font-mono border border-neutral-200 shadow-2xs flex items-center gap-2 text-black font-medium">
+          <MapPin className="w-3.5 h-3.5 text-black shrink-0" />
           <span>
-            <strong className="text-muted-foreground">Lat:</strong> {latitude.toFixed(5)},{" "}
-            <strong className="text-muted-foreground">Lng:</strong> {longitude.toFixed(5)}
+            <strong className="text-neutral-400 font-sans font-normal">Lat:</strong> {latitude.toFixed(5)},{" "}
+            <strong className="text-neutral-400 font-sans font-normal">Lng:</strong> {longitude.toFixed(5)}
           </span>
         </div>
 
@@ -95,16 +95,17 @@ export default function LocationPicker({
           type="button"
           onClick={handleGetCurrentLocation}
           disabled={isLocating}
-          className="pointer-events-auto bg-primary text-primary-foreground hover:bg-primary/90 text-xs px-3 py-1.5 rounded-md font-medium shadow-sm transition-all flex items-center gap-1.5 disabled:opacity-50"
+          className="pointer-events-auto bg-black text-white hover:bg-neutral-800 text-xs px-3.5 py-1.5 rounded-xl font-semibold shadow-xs transition-all flex items-center gap-1.5 disabled:opacity-50"
         >
           <Navigation className={`w-3.5 h-3.5 ${isLocating ? "animate-spin" : ""}`} />
-          {isLocating ? "Mencari Lokasi..." : "Lokasi Saya"}
+          {isLocating ? "Mencari GPS..." : "Lokasi Saya"}
         </button>
       </div>
 
-      <div className="absolute top-3 left-3 z-10 pointer-events-none bg-background/80 backdrop-blur-sm px-2.5 py-1 rounded text-[11px] font-medium text-muted-foreground border border-border shadow-xs">
-        Klik di mana saja pada peta untuk menandai titik lokasi
+      <div className="absolute top-3 left-3 z-10 pointer-events-none bg-white/90 backdrop-blur-md px-3 py-1 rounded-xl text-[11px] font-medium text-neutral-600 border border-neutral-200 shadow-2xs">
+        Klik lokasi pada peta untuk menandai posisi
       </div>
     </div>
   )
 }
+
