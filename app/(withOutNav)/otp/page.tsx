@@ -4,8 +4,7 @@ import { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import Logo from "@/app/layouts/(components)/Logo";
-import { Mail, CheckCircle2, AlertCircle, RefreshCw, ArrowLeft, KeyRound } from "lucide-react";
+import Image from "next/image";
 
 function OTPContent() {
   const searchParams = useSearchParams();
@@ -184,70 +183,88 @@ function OTPContent() {
   const isReset = type === "reset_password";
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-between bg-slate-950 text-slate-100 font-sans p-6 md:p-12 relative overflow-hidden">
-      {/* Background Orbs */}
-      <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div className="min-h-screen w-full bg-white flex flex-col font-sans">
+      {/* Subtle grid background */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+      />
 
-      {/* Header */}
-      <header className="w-full max-w-6xl flex justify-between items-center z-10">
-        <Logo />
+      {/* Top bar */}
+      <header className="relative z-10 w-full flex items-center justify-between px-8 lg:px-16 h-[72px] border-b border-neutral-100 bg-white/80 backdrop-blur-sm">
+        <Link href="/" className="flex items-center gap-3 font-bold text-xl text-black tracking-tight">
+          <Image src="/logo/logo.png" alt="Bina logo" width={32} height={32} className="w-8 h-8 object-contain" />
+          <span>bina.</span>
+        </Link>
         <Link
           href={isReset ? "/resetpassword" : "/register"}
-          className="text-xs md:text-sm text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors"
+          className="text-sm font-medium text-neutral-600 hover:text-black border border-neutral-200 hover:border-neutral-400 px-5 py-2 rounded-xl transition-all duration-150 flex items-center gap-2"
         >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Kembali</span>
+          <span>← Kembali</span>
         </Link>
       </header>
 
-      {/* Main Glassmorphic Card */}
-      <main className="w-full max-w-md my-auto z-10">
-        <div className="bg-slate-900/90 backdrop-blur-xl border border-slate-800/90 rounded-3xl p-8 md:p-10 shadow-2xl shadow-indigo-950/40">
-          <div className="text-center space-y-3 mb-8">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-1">
-              <KeyRound className="w-7 h-7" />
-            </div>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
-              {isReset ? "Verifikasi Reset Password" : "Verifikasi Kode OTP"}
+      {/* Main content */}
+      <main className="relative z-10 flex-1 flex items-center justify-center px-6 py-16">
+        <div className="w-full max-w-[440px] flex flex-col gap-8">
+          {/* Heading block */}
+          <div className="flex flex-col gap-3">
+            <span className="text-[11px] font-semibold tracking-[0.2em] text-neutral-400 uppercase border border-neutral-200 rounded-full px-4 py-1.5 w-max">
+              VERIFIKASI KEAMANAN
+            </span>
+            <h1 className="text-4xl font-bold text-black leading-tight tracking-tight">
+              {isReset ? "Reset Kata Sandi" : "Kode Verifikasi"}<br />
+              <span className="text-neutral-400">OTP.</span>
             </h1>
-            <p className="text-xs md:text-sm text-slate-400 leading-relaxed">
-              Masukkan 6 digit kode OTP yang telah kami kirimkan ke email:
+            <p className="text-sm text-neutral-500 leading-relaxed">
+              Masukkan 6 digit kode OTP yang telah kami kirimkan ke email:{" "}
+              <span className="font-semibold text-black break-all">{email || "email Anda"}</span>.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/60 text-xs font-mono text-indigo-300">
-              <Mail className="w-3.5 h-3.5" />
-              <span>{email || "email@domain.com"}</span>
-            </div>
           </div>
 
           {/* Dev Mode Notification Pill */}
           {devOtp && (
-            <div className="mb-6 p-3 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs text-center font-mono animate-pulse">
-              ⚡ [DEV MODE OTP]: <strong className="text-white tracking-widest text-sm font-bold">{devOtp}</strong>
+            <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-xs font-mono text-neutral-700 flex items-center justify-between">
+              <span className="text-neutral-500 font-semibold uppercase tracking-wider">⚡ DEV MODE OTP:</span>
+              <span className="text-black font-bold text-base tracking-widest bg-white px-3 py-1 rounded-lg border border-neutral-200 shadow-sm">
+                {devOtp}
+              </span>
             </div>
           )}
 
+          {/* Error alert */}
           {error && (
-            <div className="mb-6 p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 shrink-0" />
+            <div className="flex items-start gap-3 p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-sm text-neutral-700">
+              <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-neutral-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
               <span>{error}</span>
             </div>
           )}
 
+          {/* Success alert */}
           {successMsg && !error && (
-            <div className="mb-6 p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 shrink-0" />
+            <div className="flex items-start gap-3 p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-sm text-neutral-700">
+              <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <span>{successMsg}</span>
             </div>
           )}
 
-          <form onSubmit={handleVerify} className="space-y-6">
-            {/* 6 Digit Input Boxes */}
-            <div className="flex justify-between items-center gap-2 md:gap-3">
+          {/* Form */}
+          <form onSubmit={handleVerify} className="flex flex-col gap-6">
+            <div className="flex justify-between items-center gap-2 sm:gap-3">
               {otp.map((digit, idx) => (
                 <input
                   key={idx}
-                  ref={(el) => { inputRefs.current[idx] = el; }}
+                  ref={(el) => {
+                    inputRefs.current[idx] = el;
+                  }}
                   type="text"
                   inputMode="numeric"
                   maxLength={1}
@@ -255,41 +272,55 @@ function OTPContent() {
                   onChange={(e) => handleChange(idx, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(idx, e)}
                   onPaste={handlePaste}
-                  className="w-12 h-14 md:w-14 md:h-16 text-center text-xl md:text-2xl font-bold font-mono bg-slate-950/90 border border-slate-800 rounded-2xl text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all shadow-inner"
+                  className="w-12 h-14 sm:w-14 sm:h-16 text-center text-xl sm:text-2xl font-bold bg-white border border-neutral-200 rounded-xl text-black placeholder-neutral-400 focus:outline-none focus:border-black focus:ring-2 focus:ring-black/5 transition-all duration-150 shadow-sm"
                 />
               ))}
             </div>
 
-            {/* Verify Submit Button */}
             <button
               type="submit"
               disabled={isLoading || otp.some((d) => !d)}
-              className="w-full py-3.5 px-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold rounded-2xl transition-all duration-200 shadow-lg shadow-indigo-500/25 active:scale-[0.98] disabled:opacity-50 text-sm flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-4 bg-black text-white font-semibold rounded-xl text-sm hover:bg-neutral-800 active:scale-[0.98] transition-all duration-150 disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center gap-2 mt-1"
             >
               {isLoading ? (
-                <span className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                </svg>
               ) : (
-                <span>Verifikasi Kode OTP</span>
+                <>
+                  <span>Verifikasi Kode OTP</span>
+                  <span>→</span>
+                </>
               )}
             </button>
           </form>
 
-          {/* Resend Timer & Action */}
-          <div className="mt-8 pt-6 border-t border-slate-800/80 text-center space-y-2">
-            <p className="text-xs text-slate-400">Tidak menerima kode OTP?</p>
+          {/* Resend section */}
+          <div className="flex flex-col items-center justify-center gap-2 pt-6 border-t border-neutral-100 text-center">
+            <p className="text-xs text-neutral-500">Tidak menerima kode OTP?</p>
             {canResend ? (
               <button
                 type="button"
                 onClick={handleResend}
                 disabled={isResending}
-                className="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center justify-center gap-1.5 mx-auto transition-colors cursor-pointer"
+                className="text-xs font-semibold text-black hover:underline transition-all flex items-center gap-1.5 cursor-pointer"
               >
-                <RefreshCw className={`w-3.5 h-3.5 ${isResending ? "animate-spin" : ""}`} />
+                {isResending ? (
+                  <svg className="animate-spin h-3.5 w-3.5 text-black" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                ) : (
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                )}
                 <span>Kirim Ulang Kode</span>
               </button>
             ) : (
-              <p className="text-xs text-slate-500 font-mono">
-                Kirim ulang dalam <span className="text-indigo-400 font-bold">{countdown}s</span>
+              <p className="text-xs text-neutral-400 font-medium">
+                Kirim ulang dalam <span className="text-black font-semibold">{countdown}s</span>
               </p>
             )}
           </div>
@@ -297,9 +328,12 @@ function OTPContent() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full max-w-6xl flex justify-between items-center text-xs text-slate-500 z-10 pt-6 border-t border-slate-800/40">
-        <p>&copy; 2026 Lapor.in. Verifikasi Keamanan Akun.</p>
-        <Link href="/login" className="hover:text-slate-400">Ke Halaman Login</Link>
+      <footer className="relative z-10 border-t border-neutral-100 px-8 lg:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="text-xs text-neutral-400">© 2026 Bina. Semua hak dilindungi.</p>
+        <div className="flex gap-6">
+          <Link href="#" className="text-xs text-neutral-400 hover:text-black transition-colors duration-150">Privasi</Link>
+          <Link href="#" className="text-xs text-neutral-400 hover:text-black transition-colors duration-150">Ketentuan</Link>
+        </div>
       </footer>
     </div>
   );
@@ -309,7 +343,7 @@ export default function OTPPage() {
   return (
     <Suspense
       fallback={
-        <div className="w-full min-h-screen bg-slate-950 flex items-center justify-center text-slate-400 text-sm">
+        <div className="w-full min-h-screen bg-white flex items-center justify-center text-neutral-400 text-sm">
           Memuat halaman verifikasi OTP...
         </div>
       }
@@ -318,3 +352,4 @@ export default function OTPPage() {
     </Suspense>
   );
 }
+

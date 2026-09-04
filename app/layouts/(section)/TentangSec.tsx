@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import img from "@/public/image/image1.jpeg"
 
 export default function TentangSec() {
   return (
@@ -46,17 +48,15 @@ export default function TentangSec() {
         <div className="w-full lg:w-[50%] relative h-[420px] lg:h-[520px]">
           {/* Main large image placeholder */}
           <div className="absolute top-0 right-0 w-[70%] h-[75%] bg-neutral-100 rounded-2xl overflow-hidden border border-neutral-200">
-            <div className="w-full h-full flex items-end justify-end p-4"
-              style={{
-                background: "linear-gradient(135deg, #e8e8e8 0%, #c8c8c8 50%, #a8a8a8 100%)"
-              }}>
+            <div className="w-full h-full flex items-end justify-end p-4 bg-center bg-[url('/image/image2.jpeg')] bg-top">
+
               <span className="text-[10px] text-white/80 uppercase tracking-widest">JALAN KOTA</span>
             </div>
           </div>
 
           {/* Secondary image */}
-          <div className="absolute bottom-0 left-0 w-[55%] h-[52%] bg-neutral-200 rounded-2xl overflow-hidden border border-neutral-200"
-            style={{ background: "linear-gradient(135deg, #d0d0d0 0%, #b0b0b0 100%)" }}>
+          <div className="absolute bottom-0 left-0 w-[55%] h-[52%] bg-[url('/image/image1.jpeg')] bg-center rounded-2xl overflow-hidden border border-neutral-200"
+            >
             <div className="w-full h-full flex items-end justify-start p-3">
               <span className="text-[10px] text-white/80 uppercase tracking-widest">TAMAN PUBLIK</span>
             </div>
