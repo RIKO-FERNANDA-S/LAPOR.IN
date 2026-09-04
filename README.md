@@ -123,7 +123,7 @@ Melalui sistem login, verifikasi OTP, dan validasi komunitas, platform didesain 
 **[ 🖼️ Screenshot Dashboard Warga ]**
 
 
-<img src="./public/image/warga.png alt="Dashboard Warga" width="800"/>
+<img src="./public/image/warga.png" alt="Dashboard Warga" width="800"/>
  <p><em>Dashboard Warga — Kelola laporan dan pantau status</em></p>
 
 ---
@@ -131,7 +131,7 @@ Melalui sistem login, verifikasi OTP, dan validasi komunitas, platform didesain 
 **[ 🖼️ Screenshot Dashboard Admin ]**
 
 
-<img src="./public/image/warga.png" alt="Dashboard Admin" width="800"/>
+<img src="./public/image/admin.png" alt="Dashboard Admin" width="800"/>
 <p><em>Dashboard Admin — Review dan verifikasi laporan masuk</em></p>
 
 ---
