@@ -10,7 +10,7 @@
 
 **Submission for ITECHNO CUP 2026 — Web Development**
 
-**By Riko Fernanda S**
+**By Beli 2 Gratis 1 Team**
 
 </div>
 
