@@ -36,7 +36,7 @@
 | Nama | Peran | GitHub |
 |------|-------|--------|
 | **Riko Fernanda S** | Project Lead & Full Stack Developer | [@RIKO-FERNANDA-S](https://github.com/RIKO-FERNANDA-S) |
-| **Galuh Shabani** | Documentation | - |
+| **Galuh Subhana** | Documentation | - |
 | **Nashwa Atika** | UX/UI Designer | - |
 
 ---
